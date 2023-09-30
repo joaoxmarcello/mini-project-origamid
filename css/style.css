@@ -213,3 +213,28 @@ body {
     transform: traslate3d(0, 0, 0,);
   }
 }
+.js .js-faq dd {
+  display: none;
+}
+.js-faq dt::after{
+  content: '⮧';
+  margin-left:  10px;
+}
+.js-faq dt.ativo::after{
+  content: '⮥';
+}
+.js-faq dd.ativo{
+  display: block;
+  animation: slideDown 1s forwards;
+}
+@keyframes slideDown {
+  from{
+    opacity: 0;
+    max-height: 0;
+  }
+  to{
+    max-height: 100px;
+    opacity: 1;
+  }
+
+}
