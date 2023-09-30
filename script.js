@@ -21,6 +21,7 @@ if(tabAnimais.length && tabContent.length){
 initTabNav();
 
 function initFaqAccordion(){
+
 const accordionList = document.querySelectorAll('.js-faq dt');
 
 if(accordionList.length){
@@ -37,3 +38,23 @@ accordionList.forEach((item) => {
 })
 }}
 initFaqAccordion();
+
+function initScrollSmooth(){
+const linksMenu = document.querySelectorAll('.js-menu a[href^="#"]');
+
+function activeScroll(event){
+  event.preventDefault();
+  const href = event.currentTarget.getAttribute('href');
+  const toSection = document.querySelector(href);
+
+  toSection.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+  })
+}
+
+linksMenu.forEach((link) => {
+  link.addEventListener("click", activeScroll)
+})}
+
+initScrollSmooth();
