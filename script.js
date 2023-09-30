@@ -58,3 +58,25 @@ linksMenu.forEach((link) => {
 })}
 
 initScrollSmooth();
+
+function initScrollAnimation(){
+  const sections = document.querySelectorAll(".js-scroll");
+
+  if (sections.length){
+    const halfWindow = (window.innerHeight * 0.5);
+
+    function animaScroll(){
+      sections.forEach((section) =>{
+        const sectionTop = section.getBoundingClientRect().top;
+        const sectionVisible = (sectionTop - halfWindow) < 0;
+        if(sectionVisible){
+          section.classList.add(activeClass);
+        } else {
+          section.classList.remove(activeClass);
+        }
+    })
+    }
+    animaScroll();
+    window.addEventListener("scroll", animaScroll);
+}}
+initScrollAnimation();
